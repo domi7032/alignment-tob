@@ -252,6 +252,40 @@
       margin-bottom: 16px;
     }
 
+    .value-props {
+  padding: 0px 40px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.vp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.vp-number {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.vp-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--black);
+}
+
+.vp-desc {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
     .section-sub { font-size: 17px; color: var(--gray-600); max-width: 560px; margin-bottom: 56px; }
 
     .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -476,7 +510,7 @@
 
   <nav>
     <a href="/" class="nav-logo">Alignment</a>
-    <a href="#waitlist" class="nav-cta">Get early access</a>
+    <a href="" class="nav-cta" data-tally-open="q4YYO2" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">Get early access</a>
   </nav>
 
   <section class="hero" id="waitlist">
@@ -515,34 +549,99 @@
           <span class="ba-tag">Before</span>
           <span class="ba-card-label">Generic messaging</span>
         </div>
-        <div class="ba-screenshot-placeholder">
-          <div class="placeholder-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9a9890" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
-          </div>
-          <p class="placeholder-text">Add your "before" screenshot here</p>
-        </div>
-        <div class="ba-annotation">Triggers identity threat. Feels like a push, not an invitation.</div>
+        <img src="before.png" alt="Before" style="width:100%; display:block; aspect-ratio:4/3; object-fit:contain;">
+        <div class="ba-annotation">“Chatting” implies a tool. Not a co-founder. Users are here to grow business. Not to chat.</div>
       </div>
       <div class="ba-card after">
         <div class="ba-card-header">
           <span class="ba-tag">After</span>
           <span class="ba-card-label">Alignment rewrite</span>
         </div>
-        <div class="ba-screenshot-placeholder">
-          <div class="placeholder-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9a9890" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
-          </div>
-          <p class="placeholder-text">Add your "after" screenshot here</p>
-        </div>
-        <div class="ba-annotation">Removes friction. Preserves autonomy. Builds trust before asking for anything.</div>
+        <svg viewBox="0 0 940 705" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:#f5f3ee;font-family:'DM Sans',sans-serif;">
+
+  <rect width="940" height="705" fill="#f5f3ee"/>
+
+  <rect x="40" y="28" width="860" height="36" rx="4" fill="none" stroke="#bbb" stroke-width="1"/>
+  <rect x="56" y="38" width="60" height="14" rx="2" fill="#ddd"/>
+  <rect x="764" y="38" width="110" height="14" rx="2" fill="#ddd"/>
+
+  <rect x="40" y="82" width="240" height="320" rx="4" fill="#e8e5de" stroke="#ccc" stroke-width="1"/>
+  <line x1="40" y1="82" x2="280" y2="402" stroke="#bbb" stroke-width="1"/>
+  <line x1="280" y1="82" x2="40" y2="402" stroke="#bbb" stroke-width="1"/>
+  <text x="160" y="248" text-anchor="middle" font-size="11" fill="#999">image</text>
+
+  <rect x="295" y="60" width="350" height="360" rx="4" fill="#e2dfd7" stroke="#bbb" stroke-width="1"/>
+  <line x1="295" y1="60" x2="645" y2="420" stroke="#bbb" stroke-width="1"/>
+  <line x1="645" y1="60" x2="295" y2="420" stroke="#bbb" stroke-width="1"/>
+  <text x="470" y="246" text-anchor="middle" font-size="11" fill="#999">image</text>
+
+  <rect x="660" y="82" width="240" height="320" rx="4" fill="#e8e5de" stroke="#ccc" stroke-width="1"/>
+  <line x1="660" y1="82" x2="900" y2="402" stroke="#bbb" stroke-width="1"/>
+  <line x1="900" y1="82" x2="660" y2="402" stroke="#bbb" stroke-width="1"/>
+  <text x="780" y="248" text-anchor="middle" font-size="11" fill="#999">image</text>
+
+  <circle cx="72" cy="242" r="18" fill="none" stroke="#888" stroke-width="1.5"/>
+  <text x="72" y="247" text-anchor="middle" font-size="13" fill="#888">‹</text>
+  <circle cx="868" cy="242" r="18" fill="none" stroke="#555" stroke-width="1.5"/>
+  <text x="868" y="247" text-anchor="middle" font-size="13" fill="#555">›</text>
+
+  <rect x="330" y="220" width="180" height="160" rx="6" fill="white" stroke="#ccc" stroke-width="1"/>
+  <text x="350" y="246" font-size="12" font-weight="500" fill="#444">Marcus</text>
+  <line x1="330" y1="255" x2="510" y2="255" stroke="#eee" stroke-width="1"/>
+  <text x="350" y="272" font-size="10" fill="#888">Direct</text>
+  <text x="460" y="272" font-size="10" fill="#888" text-anchor="end">Funloving</text>
+  <rect x="350" y="276" width="120" height="3" rx="1.5" fill="#ddd"/>
+  <circle cx="398" cy="277.5" r="5" fill="#6b2d3e"/>
+  <text x="350" y="298" font-size="10" fill="#888">Safe</text>
+  <text x="460" y="298" font-size="10" fill="#888" text-anchor="end">Risktaker</text>
+  <rect x="350" y="302" width="120" height="3" rx="1.5" fill="#ddd"/>
+  <circle cx="430" cy="303.5" r="5" fill="#6b2d3e"/>
+  <text x="350" y="324" font-size="10" fill="#888">Driven</text>
+  <text x="460" y="324" font-size="10" fill="#888" text-anchor="end">Flexible</text>
+  <rect x="350" y="328" width="120" height="3" rx="1.5" fill="#ddd"/>
+  <circle cx="370" cy="329.5" r="5" fill="#6b2d3e"/>
+
+  <rect x="220" y="438" width="500" height="22" rx="3" fill="#ccc"/>
+  <rect x="270" y="468" width="400" height="18" rx="3" fill="#d8d5ce"/>
+
+  <rect x="300" y="504" width="340" height="11" rx="2" fill="#ddd"/>
+  <rect x="320" y="520" width="300" height="11" rx="2" fill="#ddd"/>
+
+  <rect x="195" y="545" width="550" height="56" rx="8" fill="#6b2d3e"/>
+  <text x="470" y="581" text-anchor="middle" font-size="24" font-weight="700" fill="white">See what Marcus built last night</text>
+
+  <rect x="400" y="622" width="140" height="16" rx="3" fill="#ddd"/>
+
+</svg>
+        <div class="ba-annotation">Users don't want a conversation. They want outcomes. Show them results before asking for anything.</div>
       </div>
     </div>
   </section>
 
+  <section class="value-props">
+  <div class="vp-grid">
+    <div class="vp-item">
+      <span class="vp-number">01</span>
+      <h3 class="vp-title">The line</h3>
+      <p class="vp-desc">The exact phrase triggering drop-off, and what to replace it with.</p>
+    </div>
+    <div class="vp-item">
+      <span class="vp-number">02</span>
+      <h3 class="vp-title">The structure</h3>
+      <p class="vp-desc">Which sections are in the wrong order and why it's costing you conversions.</p>
+    </div>
+    <div class="vp-item">
+      <span class="vp-number">03</span>
+      <h3 class="vp-title">The fix</h3>
+      <p class="vp-desc">Rewritten copy and layout suggestions, ready to hand off to your team.</p>
+    </div>
+  </div>
+</section>
+
   <section class="pain">
     <div class="pain-inner">
       <h2>People read your page<br>and <em>don't buy.</em></h2>
-      <p>They are interested — but something feels off.</p>
+      <p>They are interested, but something feels off.</p>
       <p>You don't know what's making people hesitate.</p>
     </div>
   </section>
