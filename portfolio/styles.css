@@ -561,6 +561,51 @@ button { font: inherit; }
 .archetype-card p,
 .evidence-card p { margin-top: 12px; color: var(--muted); font-size: 14px; line-height: 1.55; }
 
+.validation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 42px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--line);
+}
+.validation-card { padding: 30px; background: #fff; }
+.validation-card.wide { grid-column: 1 / -1; }
+.validation-card span {
+  display: block;
+  margin-bottom: 28px;
+  color: var(--blue-deep);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.validation-card h4 { margin: 0; font-size: 21px; line-height: 1.25; letter-spacing: -.03em; }
+.validation-card p { margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.proof-statement {
+  margin: 28px 0 0;
+  padding: 28px 30px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--blue);
+  color: var(--ink);
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -.035em;
+}
+.proof-statement span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--blue-deep);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
 .research-strip { margin-top: 42px; display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .research-cell { padding: 24px 24px 24px 0; }
 .research-cell + .research-cell { padding-left: 24px; border-left: 1px solid var(--line); }
@@ -832,7 +877,8 @@ button { font: inherit; }
   .spotted-zh-cover { min-height: 600px; }
   .spotted-zh-cover .spotted-zh-cover-title { font-size: clamp(40px, 11.5vw, 50px); line-height: 1.14; }
   .spotted-zh-cover .case-cover-description { margin-top: 32px; }
-  .metrics, .model-grid, .insight-grid, .archetype-grid, .evidence-grid, .mental-model { grid-template-columns: 1fr; }
+  .metrics, .model-grid, .insight-grid, .archetype-grid, .evidence-grid, .mental-model, .validation-grid { grid-template-columns: 1fr; }
+  .validation-card.wide { grid-column: auto; }
   .metric + .metric, .metric:nth-child(3), .metric:nth-child(4) { border-left: 0; border-top: 1px solid rgba(14,75,117,.25); padding: 26px 12px; }
   .metric:first-child { padding: 10px 12px 26px; }
   .case-layout { padding-top: 80px; }
