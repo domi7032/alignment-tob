@@ -441,6 +441,14 @@ button { font: inherit; }
 .case-hero-grid.case-title-only { grid-template-columns: 1fr; }
 .case-hero h1 { max-width: 880px; margin: 0; font-size: clamp(66px, 8.4vw, 124px); line-height: .88; letter-spacing: -.075em; }
 .case-hero h1 span { display: block; color: var(--blue-deep); }
+.case-hero-definition {
+  max-width: 720px;
+  margin: 38px 0 0;
+  color: #555b61;
+  font-size: 20px;
+  line-height: 1.65;
+  letter-spacing: -.015em;
+}
 .case-summary { min-width: 0; padding-bottom: 4px; overflow-wrap: anywhere; }
 .case-summary > p { margin: 0 0 30px; color: #464b50; font-size: 21px; line-height: 1.55; letter-spacing: -.02em; }
 .case-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 26px; padding-top: 24px; border-top: 1px solid var(--line); }
@@ -817,6 +825,7 @@ button { font: inherit; }
   .case-hero { padding-top: 74px; }
   .case-back { margin-bottom: 44px; }
   .case-hero h1 { font-size: clamp(62px, 19vw, 92px); }
+  .case-hero-definition { max-width: 560px; margin-top: 30px; font-size: 17px; line-height: 1.65; }
   .case-hero .spotted-en-title { font-size: clamp(50px, 14vw, 58px); }
   .case-cover-copy .spotted-en-cover-title { font-size: clamp(39px, 11vw, 46px); }
   .case-cover { min-height: 520px; }
