@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Spotted产品案例：从跨境收藏交易中的真实行为，定义、构建并验证一个需求优先型交易市场。">
+  <title>Spotted产品案例 — 郑旭岑</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="case-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#case-main">跳到正文</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="../index.html"><span class="brand-mark">郑</span><span>郑旭岑</span></a>
+      <button class="mobile-menu" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="./en/">EN</a>
+        <a href="../index.html#work">项目</a>
+        <a href="../index.html#about">关于</a>
+        <a href="../assets/Dominique_Zheng_Resume.pdf" target="_blank" rel="noreferrer">简历</a>
+        <a class="nav-cta" href="mailto:xucenzhe@usc.edu">联系我 ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="case-main">
+    <section class="case-hero">
+      <a class="case-back" href="../index.html">← 返回项目</a>
+      <div class="case-hero-grid case-title-only">
+        <div>
+          <p class="eyebrow">0→1 Marketplace · Founder case</p>
+          <h1>Spotted<span>让需求先<br>被看见。</span></h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-cover spotted-zh-cover" aria-label="Spotted核心命题">
+      <div class="orbit"></div><div class="orbit two"></div>
+      <div class="case-cover-copy">
+        <p class="eyebrow">The wedge</p>
+        <h2 class="spotted-zh-cover-title">供给可以被搜索，<br>需求却不可见。</h2>
+        <p class="case-cover-description">收藏者的需求散落在收藏搜索、表格、群聊和人的记忆里。Spotted从一张图片和一个目标价格开始，把需求变成可匹配的求购。</p>
+      </div>
+    </section>
+
+    <section class="metric-wrap" aria-label="核心证据">
+      <div class="metrics">
+        <div class="metric"><strong>200+</strong><span>Mercari需求验证订单，不是Spotted平台订单</span></div>
+        <div class="metric"><strong>4</strong><span>Spotted小范围内测真实用户</span></div>
+        <div class="metric"><strong>13</strong><span>前两名用户提交的真实求购需求</span></div>
+        <div class="metric"><strong>9/9</strong><span>我能找到且低于目标价的报价全部获接受</span></div>
+      </div>
+      <p class="metric-note">口径说明：200+笔订单来自上线Spotted之前及同期经营的Mercari跨境转卖业务，用于市场观察和需求验证；Spotted本身目前仍处于小范围产品试点。</p>
+    </section>
+
+    <div class="case-layout">
+      <aside class="case-toc" aria-label="文章目录">
+        <p>案例目录</p>
+        <a href="#background">01 背景与初始假设</a>
+        <a href="#research">02 用户研究</a>
+        <a href="#landscape">03 竞争格局</a>
+        <a href="#decision">04 为什么先做求购清单</a>
+        <a href="#mvp">05 最小产品与迭代</a>
+        <a href="#pilot">06 真实用户试点</a>
+        <a href="#patterns">07 四种行为模式</a>
+        <a href="#mental-model">08 心智模型修正</a>
+        <a href="#measurement">09 最小数据系统</a>
+        <a href="#next">10 当前瓶颈与下一步</a>
+      </aside>
+
+      <article class="case-main">
+        <section class="case-section fade-up" id="background">
+          <p class="section-kicker">01 · Background</p>
+          <h2>我先进入交易，再定义产品。</h2>
+          <p class="lead">在经营K-pop收藏品跨境转卖的前两个月，我发现这个市场的问题不只是“商品在哪里卖”，而是商品身份、命名、价格信息和交易渠道都高度分散。</p>
+          <p>我的第一反应是建设收藏品基础设施：统一同一张卡的标准商品身份、积累交易价格，再帮助用户识别散落在不同平台的商品信息。</p>
+
+          <div class="model-grid">
+            <div class="model-card"><span>参考案例 01</span><h4>Discogs</h4><p>通过社区共创维护标准商品与发行版本。</p></div>
+            <div class="model-card"><span>参考案例 02</span><h4>TCGplayer</h4><p>用标准商品目录连接交易与价格追踪。</p></div>
+            <div class="model-card"><span>参考案例 03</span><h4>StockX</h4><p>标准化商品、市场价格与交易机制。</p></div>
+            <div class="model-card"><span>现实限制</span><h4>K-pop发新太快，也太碎。</h4><p>版本、特典与地区限定高速增加；在不知道哪些卡有真实需求前，全量整理成本极高。</p></div>
+          </div>
+
+          <blockquote class="pull-quote">基础设施机会可能是真的，但它不是第一天就能给用户价值的切口。</blockquote>
+        </section>
+
+        <section class="case-section fade-up" id="research">
+          <p class="section-kicker">02 · Contextual research</p>
+          <h2>不问“你的痛点是什么”，问上一次你具体做了什么。</h2>
+          <p>第一轮，我在8次真实Mercari买家对话中追问最近一次发现、搜索、判断价格和购买小卡的过程。第二轮，Spotted上线后，我在订单发货沟通窗口中轮换一个简短问题，并邀请5名买家进行更深入访谈。</p>
+
+          <div class="research-strip">
+            <div class="research-cell"><strong>8</strong><span>探索期情境式买家对话</span></div>
+            <div class="research-cell"><strong>5</strong><span>上线后的发货窗口访谈</span></div>
+            <div class="research-cell"><strong>2</strong><span>访谈与线下观察共同支持的收藏行为</span></div>
+          </div>
+
+          <div class="insight-grid">
+            <div class="insight-card"><span>洞察 01</span><h4>发现与交易不在同一个渠道</h4><p>5名买家通过Twitter、TikTok、朋友或卖家账号发现新卡；Mercari更多用于监控已经知道的卡。</p></div>
+            <div class="insight-card"><span>洞察 02</span><h4>商品身份依赖圈内知识</h4><p>“我甚至不知道它叫什么。”用户常靠图片和懂行朋友，而不是标准名称。</p></div>
+            <div class="insight-card"><span>洞察 03</span><h4>用户在自建追踪系统</h4><p>电子表格模板、收藏搜索和反复刷新，本质都是未被产品化的需求追踪。</p></div>
+            <div class="insight-card"><span>洞察 04</span><h4>找不到与买不起是两种需求</h4><p>有人等商品出现，有人受当前价格限制；商品与价格条件必须同时被表达。</p></div>
+          </div>
+
+          <h3>现有用户旅程</h3>
+          <div class="journey" aria-label="收藏者现有寻找流程">
+            <div class="journey-row">
+              <div class="journey-step"><b>社交平台发现</b><small>Twitter / TikTok / 朋友</small></div>
+              <div class="journey-step"><b>识别是哪张</b><small>看图、问圈内人</small></div>
+              <div class="journey-step"><b>跨平台搜索</b><small>名称不统一</small></div>
+              <div class="journey-step"><b>建立监控</b><small>收藏搜索 / 表格</small></div>
+              <div class="journey-step"><b>反复比较</b><small>没有稳定价格参考</small></div>
+              <div class="journey-step"><b>等待“碰巧出现”</b><small>也许会出现</small></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section fade-up" id="landscape">
+          <p class="section-kicker">03 · Competitive landscape</p>
+          <h2>用户不缺记录愿望的工具，难的是把“找不到”推进到真实成交。</h2>
+          <p>我没有把竞争分析做成品牌列表，而是按用户任务拆解现有工具覆盖了什么。社交平台擅长发现，交易平台承接已经发布的商品，收藏管理工具帮助用户记录拥有和想要的卡；当目标商品没有现成上架信息时，寻找供给、确认价格并完成跨境履约仍然需要大量人工工作。</p>
+
+          <p><a class="inline-source" href="https://biasroom.com/kpop-photocard-collector" target="_blank" rel="noreferrer">Bias Room</a>尤其值得重视。它已经把大规模数据库、图片识别、收藏管理、求购清单、社交与交易市场组合在一起。截至2026年7月，其公开页面显示约45.3万张卡和10万+条交易市场商品，Google Play显示1万+下载。它快速积累商品目录和用户入口，验证了收藏管理可以成为很强的产品切口，也意味着Spotted不能再把“结构化需求”当作无人覆盖的市场空白。</p>
+
+          <p>Bias Room做到了我最初想做、却判断过重的标准商品身份与价格追踪。但这并没有否定我当时的取舍：从它的产品覆盖和数据规模看，这已经不是我作为独立创业者能在最小可行产品阶段正面追赶的基础设施。我的选择不是判断这条路径“做不成”，而是承认自己没有追赶优势，转向更能利用现有客户关系、供应链和履约能力的主动找货切口。</p>
+
+          <div class="landscape">
+            <table>
+              <thead><tr><th>解决方案</th><th>发现新卡</th><th>识别商品</th><th>监控已知商品</th><th>结构化需求</th><th>交易/履约</th></tr></thead>
+              <tbody>
+                <tr><td>Twitter / TikTok / Discord</td><td><span class="signal good">强</span></td><td><span class="signal partial">部分</span></td><td><span class="signal">弱</span></td><td>非结构化</td><td><span class="signal">弱</span></td></tr>
+                <tr><td>Mercari / eBay</td><td><span class="signal">弱</span></td><td>依赖卖家命名</td><td><span class="signal good">强</span></td><td>收藏搜索</td><td><span class="signal good">强</span></td></tr>
+                <tr><td>Bias Room</td><td><span class="signal good">强</span></td><td>图片识别＋大规模数据库</td><td>求购清单＋价格追踪</td><td><span class="signal good">强</span></td><td>买卖／交换商品</td></tr>
+                <tr><td>电子表格／模板</td><td>—</td><td>用户维护</td><td>手动</td><td><span class="signal good">强</span></td><td>—</td></tr>
+                <tr><td>代购／代理服务</td><td>—</td><td><span class="signal">弱</span></td><td><span class="signal partial">部分</span></td><td>—</td><td>跨境访问</td></tr>
+                <tr class="spotted-row"><td>Spotted切入点</td><td>图片输入</td><td>按真实需求积累</td><td>主动找货与报价</td><td><span class="signal good">明确价格意愿</span></td><td>人工匹配＋跨境履约</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="case-section fade-up" id="decision">
+          <p class="section-kicker">04 · Product strategy</p>
+          <h2>为什么不是数据库、价格追踪或另一个交易市场？</h2>
+          <div class="decision-table" role="table" aria-label="产品方向比较">
+            <div class="decision-row header" role="row"><div>方向</div><div>即时价值</div><div>冷启动</div><div>数据前置</div><div>长期价值</div></div>
+            <div class="decision-row" role="row"><div>全量标准商品数据库</div><div>低—中</div><div>高</div><div>极高</div><div>高</div></div>
+            <div class="decision-row" role="row"><div>价格追踪</div><div>中</div><div>高</div><div>高</div><div>高</div></div>
+            <div class="decision-row" role="row"><div>商品上架型交易市场</div><div>中</div><div>极高</div><div>供给前置</div><div>中</div></div>
+            <div class="decision-row selected" role="row"><div>求购清单／需求广场</div><div>高</div><div>中</div><div>低</div><div>高</div></div>
+          </div>
+
+          <div class="logic-chain">
+            <div class="logic-node"><b>用户已经在私信里提出“帮我找”</b></div>
+            <div class="logic-node"><b>把现有行为结构化</b></div>
+            <div class="logic-node"><b>无需先建完整数据库</b></div>
+            <div class="logic-node"><b>需求指导定向供给</b></div>
+            <div class="logic-node"><b>再决定哪些标准商品值得整理</b></div>
+          </div>
+
+          <blockquote class="pull-quote">求购清单不是最终产品，而是进入市场的最小切口。</blockquote>
+        </section>
+
+        <section class="case-section fade-up" id="mvp">
+          <p class="section-kicker">05 · MVP scope</p>
+          <h2>先让一条真实需求从上传走到完成履约。</h2>
+          <p class="lead">买家上传需求，需求进入公开需求广场，再由我人工寻找供给、报价并完成履约。自动匹配、完整支付、原生应用和全量数据库全部延后。</p>
+
+          <h3>先用朋友找可用性问题，再用目标用户验证行为</h3>
+          <p>朋友参与主持式端到端可用性测试，只用于确认流程是否看得懂、是否能在手机上完成以及是否存在明显错误；需求验证留给此前真实提出过找卡需求的收藏者。</p>
+
+          <h3>从四个字段，减到两个</h3>
+          <div class="form-compare">
+            <div class="form-card">
+              <h4>V0 · 收集更多信息</h4>
+              <div class="fake-field">照片 <span>必填</span></div>
+              <div class="fake-field">理想价格 <span>$</span></div>
+              <div class="fake-field removed">团名 <span>已删除</span></div>
+              <div class="fake-field removed">备注 <span>已删除</span></div>
+            </div>
+            <div class="compare-arrow">→</div>
+            <div class="form-card after">
+              <h4>V1 · 最小需求表达</h4>
+              <div class="fake-field">照片 <span>必填</span></div>
+              <div class="fake-field">理想价格 <span>$</span></div>
+              <div class="reduction">4 → 2个字段 · 减少50%输入项</div>
+            </div>
+          </div>
+          <p>团名在当前人工履约中没有提供关键增量信息；开放式备注让用户停下来组织语言。我删除两者，只保留识别商品与判断需求强度所需的信息。</p>
+
+          <h3>让注册发生在意图之后</h3>
+          <div class="evidence-grid">
+            <div class="evidence-card"><span>买家流程</span><h4>填写求购 → 提交 → 注册并发布</h4><p>先完成有动机的任务，再用“保存和追踪求购”解释账户价值。</p></div>
+            <div class="evidence-card"><span>卖家流程</span><h4>我有这件商品 → 报价 → 注册并提交</h4><p>潜在卖家先确认需求与报价意图，再承担账户成本。</p></div>
+          </div>
+        </section>
+
+        <section class="case-section fade-up" id="pilot">
+          <p class="section-kicker">06 · Trusted rollout</p>
+          <h2>一旦进入产品，用户表达了比私信里更多的需求。</h2>
+          <p>我邀请了3名此前主动提出找卡需求、并与我存在真实Instagram联系的收藏者。2人完成真实上传，分别提交2条和11条求购——都超过此前在私信中向我表达的数量。</p>
+
+          <div class="funnel" aria-label="早期用户漏斗">
+            <div class="funnel-step"><strong>3</strong><span>高意向收藏者受邀</span></div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step blue"><strong>2</strong><span>完成至少一条真实求购</span></div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step"><strong>13</strong><span>两人合计提交求购</span></div>
+          </div>
+
+          <p>这为“先做求购清单”的假设提供了早期支持：自助输入可能降低逐条在私信中麻烦卖家的社交成本，也帮助用户一次整理更多需求。但它仍是从已有信任关系启动的小范围试点，不代表陌生用户激活或长期留存。</p>
+
+          <h3>从“上传”继续走到“接受报价”</h3>
+          <p>对于我能够找到供给的9条求购，我给出的报价都低于用户预先填写的目标价格，9条报价全部获得接受。这说明理想价格至少在当前样本中能够筛选具有实际交易意愿的需求。</p>
+          <p class="annotation">Spotted采用到货后付款：用户接受报价后，我先完成跨境采购，商品抵达美国再付款。这批用户此前已通过同样方式与我完成过交易，因此9/9代表建立在既有信任上的明确购买意愿；后续履约状态仍会单独记录。</p>
+        </section>
+
+        <section class="case-section fade-up" id="patterns">
+          <p class="section-kicker">07 · Behavioral patterns</p>
+          <h2>相同的“找不到”，产生四种不同的行为。</h2>
+          <p>第二轮5名访谈与线下观察让我意识到，这些不是固定人格，而是搜索失败后的四种应对模式。同一个用户面对不同卡片，也可能在模式之间切换。</p>
+
+          <div class="archetype-grid">
+            <div class="archetype-card"><span>01 · 放弃型</span><h4>找不到，就放弃。</h4><p>缺少有效替代方案，是Spotted当前最直接匹配的用户行为。</p></div>
+            <div class="archetype-card"><span>02 · 持续检查型</span><h4>把反复刷新变成习惯。</h4><p>紧迫感较低；Spotted必须比继续刷平台明显更省力。</p></div>
+            <div class="archetype-card"><span>03 · 低预算型</span><h4>欲望存在，但价格不成立。</h4><p>需要等待和价格条件，不能把求购清单直接等同于订单。</p></div>
+            <div class="archetype-card"><span>04 · 补全收藏型</span><h4>围绕系列持续补全。</h4><p>访谈中的Twitter模板与洛杉矶门店实地观察共同支持，具有更高的潜在使用频率。</p></div>
+          </div>
+        </section>
+
+        <section class="case-section fade-up" id="mental-model">
+          <p class="section-kicker">08 · Mental model</p>
+          <h2>没有点击“接受”，不等于不想要。</h2>
+          <p>早期有3名用户没有在页面完成接受报价。回访显示，用户误以为上传时填写的价格已经构成最终下单，而Spotted的真实逻辑是：先表达非约束性需求，找到商品后再由用户决定。</p>
+
+          <div class="mental-model">
+            <div class="mental-card">
+              <span>用户原本的理解</span>
+              <div class="mental-flow"><b>填写价格</b><i>→</i><b>已经下单</b></div>
+            </div>
+            <div class="mental-card correct">
+              <span>Spotted的实际流程</span>
+              <div class="mental-flow"><b>理想价格</b><i>→</i><b>求购</b><i>→</i><b>报价</b><i>→</i><b>最终决定</b></div>
+            </div>
+          </div>
+
+          <p>我重写了价格输入、提交文案与提醒邮件，加入“最终决定权在你”来明确：发布求购不是购买承诺，用户收到报价后仍拥有最终决定权。修正的不是单一按钮，而是用户对整个交易机制的理解。</p>
+        </section>
+
+        <section class="case-section fade-up" id="measurement">
+          <p class="section-kicker">09 · Measurement design</p>
+          <h2>不急着做数据看板，先让核心闭环可查询。</h2>
+          <p>人工回访可以解释“为什么”，却不能稳定还原每条求购在哪一步停下。我定义了最小核心漏斗，并优先使用数据库中的业务状态时间戳，而不是另建一套可能与真实状态不一致的事件系统。</p>
+
+          <div class="north-star" aria-label="核心漏斗">
+            <b>访问页面</b><i>→</i><b>开始填写求购</b><i>→</i><b>提交求购</b><i>→</i><b>卖家报价</b><i>→</i><b>买家接受</b><i>→</i><b>完成履约</b>
+          </div>
+
+          <div class="taxonomy" aria-label="事件分类示意">
+            <div class="taxonomy-head"><span>EVENTS.md · 事件定义文档</span><span>存储位置</span></div>
+            <div class="event-row"><code>page_view</code><span>带有渠道归因的页面访问</span><span>Microsoft Clarity页面访问</span></div>
+            <div class="event-row"><code>wishlist_started</code><span>首次有效操作求购表单</span><span>最小前端事件</span></div>
+            <div class="event-row"><code>wishlist_submitted</code><span>求购成功发布</span><span>数据库时间戳</span></div>
+            <div class="event-row"><code>offer_made</code><span>卖家提交报价</span><span>数据库时间戳</span></div>
+            <div class="event-row"><code>offer_accepted</code><span>买家确认报价</span><span>数据库时间戳</span></div>
+            <div class="event-row"><code>fulfillment_completed</code><span>买家确认收货</span><span>数据库时间戳</span></div>
+          </div>
+
+          <p>所有生命周期状态通过求购与匹配标识连接，从而用SQL计算求购匹配率、报价接受率、首次报价耗时和完成履约耗时。Microsoft Clarity继续用于会话回放与定性诊断，不作为业务状态的唯一事实来源。</p>
+        </section>
+
+        <section class="case-section fade-up" id="next">
+          <p class="section-kicker">10 · Current stage</p>
+          <h2>现在的风险已经从“有人要吗”，移动到“能重复发生吗”。</h2>
+          <p>从已有信任关系启动的用户进入产品后，表达了较多需求；但Mercari无法提供低摩擦的可点击站外入口。当前最大问题是把潜在需求转化为条件明确的求购，以及在不完全依赖我个人关系和人工寻找的情况下持续完成匹配。</p>
+
+          <div class="next-grid">
+            <div class="next-card"><span>获客</span><h4>逐步转向Instagram</h4><p>在可点击、可持续沟通的环境中分离渠道摩擦与产品摩擦。</p></div>
+            <div class="next-card"><span>激活</span><h4>区分愿望与当前求购</h4><p>明确购买时间、价格条件与当前意愿，保护需求板质量。</p></div>
+            <div class="next-card"><span>双边市场</span><h4>验证非创始人供给</h4><p>从人工找货扩展到供应方发现需求、报价和完成履约。</p></div>
+          </div>
+
+          <div class="case-end">
+            <p>我没有从一个宏大的交易市场开始。<br>我从一个用户已经在做、却还没有被产品化的动作开始。</p>
+          </div>
+
+          <div class="case-project-details">
+            <p>我如何从跨境转卖中的真实用户行为，放弃“先建完整数据库”的初始想法，转而用求购清单测试一个分散收藏市场的最小切入点。</p>
+            <div class="case-meta">
+              <div><span>角色</span><strong>创始人 · 产品 · 增长 · 运营</strong></div>
+              <div><span>时间</span><strong>2026年4月—至今</strong></div>
+              <div><span>阶段</span><strong>小范围信任内测</strong></div>
+              <div><span>技术</span><strong>React · Supabase · AI辅助开发</strong></div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© <span data-year></span> 郑旭岑</span>
+      <span><a href="../index.html">主页</a> · <a href="mailto:xucenzhe@usc.edu">邮箱</a> · <a href="https://spotted.blue" target="_blank" rel="noreferrer">Spotted ↗</a></span>
+    </div>
+  </footer>
+  <script src="../script.js"></script>
+</body>
+</html>

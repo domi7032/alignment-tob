@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Spotted product case study: turning observed behavior in cross-border collectibles into a demand-first marketplace wedge.">
+  <title>Spotted Product Case — Dominique Zheng</title>
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <div class="case-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#case-main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../../index.html"><span class="brand-mark">DZ</span><span>Dominique Zheng</span></a>
+      <button class="mobile-menu" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="../">中文</a>
+        <a href="../../index.html#work">Work</a>
+        <a href="../../index.html#about">About</a>
+        <a href="../../assets/Dominique_Zheng_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        <a class="nav-cta" href="mailto:xucenzhe@usc.edu">Contact ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="case-main">
+    <section class="case-hero">
+      <a class="case-back" href="../../index.html">← Back to work</a>
+      <div class="case-hero-grid case-title-only">
+        <div>
+          <p class="eyebrow">0→1 Marketplace · Founder case</p>
+          <h1 class="spotted-en-title">Spotted<span>Make demand<br>visible first.</span></h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-cover" aria-label="Spotted's core thesis">
+      <div class="orbit"></div><div class="orbit two"></div>
+      <div class="case-cover-copy">
+        <p class="eyebrow">The wedge</p>
+        <h2 class="spotted-en-cover-title">Supply is searchable.<br>Demand isn’t.</h2>
+        <p class="case-cover-description">Collector demand lives across saved searches, spreadsheets, group chats, and memory. Spotted starts with one image and one target price, then turns that intent into a matchable request.</p>
+      </div>
+    </section>
+
+    <section class="metric-wrap" aria-label="Core evidence">
+      <div class="metrics">
+        <div class="metric"><strong>200+</strong><span>Mercari demand-validation orders, not Spotted orders</span></div>
+        <div class="metric"><strong>4</strong><span>real users in Spotted’s private rollout</span></div>
+        <div class="metric"><strong>13</strong><span>real requests submitted by the first two users</span></div>
+        <div class="metric"><strong>9/9</strong><span>matchable offers below target price were accepted</span></div>
+      </div>
+      <p class="metric-note">Scope note: the 200+ orders came from the Mercari cross-border resale operation I ran before and alongside Spotted. They informed market observation and demand validation; Spotted itself remains an early private pilot.</p>
+    </section>
+
+    <div class="case-layout">
+      <aside class="case-toc" aria-label="Case contents">
+        <p>Case contents</p>
+        <a href="#background">01 Background</a>
+        <a href="#research">02 Customer research</a>
+        <a href="#landscape">03 Competitive landscape</a>
+        <a href="#decision">04 Why wishlist first</a>
+        <a href="#mvp">05 MVP and iteration</a>
+        <a href="#pilot">06 Real-user pilot</a>
+        <a href="#patterns">07 Behavioral patterns</a>
+        <a href="#mental-model">08 Mental-model correction</a>
+        <a href="#measurement">09 Measurement design</a>
+        <a href="#next">10 Current constraint</a>
+      </aside>
+
+      <article class="case-main">
+        <section class="case-section fade-up" id="background">
+          <p class="section-kicker">01 · Background</p>
+          <h2>I entered the transaction before defining the product.</h2>
+          <p class="lead">During my first two months running a cross-border K-pop collectibles business, I learned that the market was fragmented at every layer: item identity, naming, pricing, discovery, and transaction channels.</p>
+          <p>My first instinct was to build infrastructure: standardize each photocard as an entity, collect transaction prices, and help collectors identify listings scattered across marketplaces.</p>
+
+          <div class="model-grid">
+            <div class="model-card"><span>Reference 01</span><h4>Discogs</h4><p>A community-maintained catalog of standardized releases and versions.</p></div>
+            <div class="model-card"><span>Reference 02</span><h4>TCGplayer</h4><p>A structured catalog connecting transactions with price tracking.</p></div>
+            <div class="model-card"><span>Reference 03</span><h4>StockX</h4><p>Standardized products, market pricing, and transaction mechanics.</p></div>
+            <div class="model-card"><span>Constraint</span><h4>K-pop releases move too fast.</h4><p>Versions, preorder benefits, and regional exclusives multiply quickly. Building a complete database before knowing what carries real demand would be expensive and slow.</p></div>
+          </div>
+
+          <blockquote class="pull-quote">The infrastructure opportunity may be real. It was not the fastest way to create value on day one.</blockquote>
+        </section>
+
+        <section class="case-section fade-up" id="research">
+          <p class="section-kicker">02 · Contextual research</p>
+          <h2>I did not ask for “pain points.” I asked what happened last time.</h2>
+          <p>In the first round, I used eight real Mercari buyer conversations to reconstruct how collectors last discovered, searched for, priced, and purchased a photocard. After Spotted launched, I rotated one short research question into the shipping window and invited five buyers into deeper conversations.</p>
+
+          <div class="research-strip">
+            <div class="research-cell"><strong>8</strong><span>contextual buyer conversations during exploration</span></div>
+            <div class="research-cell"><strong>5</strong><span>post-launch shipping-window interviews</span></div>
+            <div class="research-cell"><strong>2</strong><span>collection behaviors supported by interviews and field observation</span></div>
+          </div>
+
+          <div class="insight-grid">
+            <div class="insight-card"><span>Finding 01</span><h4>Discovery and transaction happen in different places.</h4><p>Five buyers discovered cards through Twitter, TikTok, friends, or seller accounts. Mercari was used more often to monitor cards they already knew.</p></div>
+            <div class="insight-card"><span>Finding 02</span><h4>Item identity depends on insider knowledge.</h4><p>“I didn’t even know what it was called.” Collectors often rely on images and informed friends rather than standardized names.</p></div>
+            <div class="insight-card"><span>Finding 03</span><h4>Collectors build their own tracking systems.</h4><p>Spreadsheet templates, saved searches, and repeated checking are all forms of demand tracking that existing tools only partially support.</p></div>
+            <div class="insight-card"><span>Finding 04</span><h4>“Cannot find it” and “cannot afford it” are different.</h4><p>Some buyers wait for supply to appear; others wait for price conditions to change. A useful request must express both the item and the price condition.</p></div>
+          </div>
+
+          <h3>The current journey</h3>
+          <div class="journey" aria-label="Current collector journey">
+            <div class="journey-row">
+              <div class="journey-step"><b>Discover socially</b><small>Twitter / TikTok / friends</small></div>
+              <div class="journey-step"><b>Identify the card</b><small>image or insider help</small></div>
+              <div class="journey-step"><b>Search platforms</b><small>inconsistent naming</small></div>
+              <div class="journey-step"><b>Set up monitoring</b><small>saved search / sheet</small></div>
+              <div class="journey-step"><b>Compare repeatedly</b><small>no stable reference price</small></div>
+              <div class="journey-step"><b>Hope it appears</b><small>maybe</small></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-section fade-up" id="landscape">
+          <p class="section-kicker">03 · Competitive landscape</p>
+          <h2>Collectors can record what they want. The harder problem is moving “unavailable” toward a real transaction.</h2>
+          <p>I analyzed competitors by user job rather than by logo. Social platforms drive discovery. Marketplaces transact available listings. Collection trackers help users record what they own and want. When no listing exists, sourcing, pricing, and cross-border fulfillment still require substantial manual work.</p>
+
+          <p><a class="inline-source" href="https://biasroom.com/kpop-photocard-collector" target="_blank" rel="noreferrer">Bias Room</a> matters most. It combines a large database, image recognition, collection and wishlist tools, social features, and a marketplace. As of July 2026, its public pages showed roughly 453,000 cards, 100,000+ marketplace listings, and 10,000+ Google Play downloads. Its speed and breadth demonstrate that collection management can be a powerful acquisition wedge—and that structured demand is not an uncontested space.</p>
+
+          <p>Bias Room also built the entity layer and price tracking I originally considered too heavy. That does not invalidate my sequencing decision. At its current breadth and data scale, it is not infrastructure I could realistically outbuild as a solo founder at the MVP stage. I chose a different battlefield: active sourcing, pricing, and fulfillment, where I could use existing customer trust and supply-chain capabilities.</p>
+
+          <div class="landscape">
+            <table>
+              <thead><tr><th>Solution</th><th>Discover</th><th>Identify</th><th>Monitor</th><th>Structured demand</th><th>Transaction / fulfillment</th></tr></thead>
+              <tbody>
+                <tr><td>Twitter / TikTok / Discord</td><td><span class="signal good">Strong</span></td><td><span class="signal partial">Partial</span></td><td><span class="signal">Weak</span></td><td>Unstructured</td><td><span class="signal">Weak</span></td></tr>
+                <tr><td>Mercari / eBay</td><td><span class="signal">Weak</span></td><td>Seller naming</td><td><span class="signal good">Strong</span></td><td>Saved search</td><td><span class="signal good">Strong</span></td></tr>
+                <tr><td>Bias Room</td><td><span class="signal good">Strong</span></td><td>Image recognition + database</td><td>Wishlist + price tracking</td><td><span class="signal good">Strong</span></td><td>Buy / sell / trade listings</td></tr>
+                <tr><td>Spreadsheet / template</td><td>—</td><td>User-maintained</td><td>Manual</td><td><span class="signal good">Strong</span></td><td>—</td></tr>
+                <tr><td>Proxy service</td><td>—</td><td><span class="signal">Weak</span></td><td><span class="signal partial">Partial</span></td><td>—</td><td>Cross-border access</td></tr>
+                <tr class="spotted-row"><td>Spotted wedge</td><td>Image input</td><td>Built from real requests</td><td>Active sourcing + offer</td><td><span class="signal good">Price-qualified</span></td><td>Manual matching + fulfillment</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="case-section fade-up" id="decision">
+          <p class="section-kicker">04 · Product strategy</p>
+          <h2>Why not a database, price tracker, or another listing marketplace?</h2>
+          <div class="decision-table" role="table" aria-label="Product direction comparison">
+            <div class="decision-row header" role="row"><div>Direction</div><div>Immediate value</div><div>Cold start</div><div>Data dependency</div><div>Long-term value</div></div>
+            <div class="decision-row" role="row"><div>Full entity database</div><div>Low–medium</div><div>High</div><div>Very high</div><div>High</div></div>
+            <div class="decision-row" role="row"><div>Price tracking</div><div>Medium</div><div>High</div><div>High</div><div>High</div></div>
+            <div class="decision-row" role="row"><div>Listing marketplace</div><div>Medium</div><div>Very high</div><div>Supply first</div><div>Medium</div></div>
+            <div class="decision-row selected" role="row"><div>Wishlist / demand board</div><div>High</div><div>Medium</div><div>Low</div><div>High</div></div>
+          </div>
+
+          <div class="logic-chain">
+            <div class="logic-node"><b>Buyers already ask, “Can you find this?”</b></div>
+            <div class="logic-node"><b>Structure an existing behavior</b></div>
+            <div class="logic-node"><b>Avoid requiring a full database</b></div>
+            <div class="logic-node"><b>Let demand guide sourcing</b></div>
+            <div class="logic-node"><b>Learn which entities deserve structure</b></div>
+          </div>
+
+          <blockquote class="pull-quote">The wishlist is not the final product. It is the smallest viable entry point.</blockquote>
+        </section>
+
+        <section class="case-section fade-up" id="mvp">
+          <p class="section-kicker">05 · MVP scope</p>
+          <h2>Move one real request from upload to completed fulfillment.</h2>
+          <p class="lead">A buyer uploads a request, it appears on a public board, and I manually source, price, and fulfill it. Automated matching, integrated payments, a native app, and a complete database all came later.</p>
+
+          <h3>Use friends to find usability problems; use target users to validate behavior.</h3>
+          <p>Friends completed moderated end-to-end usability tests to verify that the mobile flow was understandable and functional. Demand validation was reserved for collectors who had previously asked me to find specific cards.</p>
+
+          <h3>Reduce four fields to two.</h3>
+          <div class="form-compare">
+            <div class="form-card">
+              <h4>V0 · Collect more information</h4>
+              <div class="fake-field">Photo <span>Required</span></div>
+              <div class="fake-field">Ideal price <span>$</span></div>
+              <div class="fake-field removed">Group name <span>Removed</span></div>
+              <div class="fake-field removed">Note <span>Removed</span></div>
+            </div>
+            <div class="compare-arrow">→</div>
+            <div class="form-card after">
+              <h4>V1 · Minimum demand expression</h4>
+              <div class="fake-field">Photo <span>Required</span></div>
+              <div class="fake-field">Ideal price <span>$</span></div>
+              <div class="reduction">4 → 2 fields · 50% fewer inputs</div>
+            </div>
+          </div>
+          <p>Group name added little information to a manually fulfilled workflow. The open note field made users stop and compose an answer. I removed both and kept only what was needed to identify the item and qualify demand.</p>
+
+          <h3>Ask for registration after intent.</h3>
+          <div class="evidence-grid">
+            <div class="evidence-card"><span>Buyer flow</span><h4>Enter request → Submit → Register and publish</h4><p>Complete the motivated task first, then explain the account as a way to save and track the request.</p></div>
+            <div class="evidence-card"><span>Seller flow</span><h4>I have this → Offer → Register and submit</h4><p>Let a potential seller confirm the request and price intention before paying the account-creation cost.</p></div>
+          </div>
+        </section>
+
+        <section class="case-section fade-up" id="pilot">
+          <p class="section-kicker">06 · Trusted rollout</p>
+          <h2>Once inside the product, users expressed more demand than they had in DMs.</h2>
+          <p>I invited three collectors who had previously asked me to find cards and had a real Instagram relationship with me. Two completed an upload, submitting two and eleven requests respectively—more than either had previously expressed in DMs.</p>
+
+          <div class="funnel" aria-label="Early user funnel">
+            <div class="funnel-step"><strong>3</strong><span>high-intent collectors invited</span></div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step blue"><strong>2</strong><span>submitted at least one real request</span></div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step"><strong>13</strong><span>requests submitted by two users</span></div>
+          </div>
+
+          <p>This provides early support for the wishlist-first hypothesis: self-service input may reduce the social cost of asking a seller for multiple favors and help collectors externalize more demand at once. It remains a warm-started pilot—not evidence of cold-user activation or long-term retention.</p>
+
+          <h3>From upload to accepted offer.</h3>
+          <p>For the nine requests I could source, every offer came in below the buyer’s stated target price, and all nine were accepted. In this sample, ideal price helped distinguish actionable demand from a general wish.</p>
+          <p class="annotation">Spotted uses pay on arrival: after a buyer accepts an offer, I complete the cross-border purchase and collect payment when the item reaches the United States. These users had previously completed transactions with me through the same model, so 9/9 represents clear purchase intent grounded in existing trust. Fulfillment status remains separately tracked.</p>
+        </section>
+
+        <section class="case-section fade-up" id="patterns">
+          <p class="section-kicker">07 · Behavioral patterns</p>
+          <h2>The same “I can’t find it” produces four different behaviors.</h2>
+          <p>The second interview round and field observation showed that these are not fixed personas. They are responses to search failure, and the same collector may move between them for different cards.</p>
+
+          <div class="archetype-grid">
+            <div class="archetype-card"><span>01 · Give up</span><h4>Cannot find it, so stop looking.</h4><p>No effective workaround. This behavior is the most direct fit for Spotted.</p></div>
+            <div class="archetype-card"><span>02 · Keep checking</span><h4>Turn repeated checking into a habit.</h4><p>Urgency is lower; Spotted must be clearly easier than continuing to refresh marketplaces.</p></div>
+            <div class="archetype-card"><span>03 · Low budget</span><h4>Desire exists, but the price does not work.</h4><p>Timing and price conditions matter. A wishlist cannot be treated as an order.</p></div>
+            <div class="archetype-card"><span>04 · Collection completion</span><h4>Complete a series over time.</h4><p>Supported by interview evidence and in-store observation of collectors checking templates; potentially higher-frequency usage.</p></div>
+          </div>
+        </section>
+
+        <section class="case-section fade-up" id="mental-model">
+          <p class="section-kicker">08 · Mental model</p>
+          <h2>No click on “Accept” did not mean no desire.</h2>
+          <p>Three early users did not accept an offer in the product. Follow-up showed that they believed entering a target price had already placed an order. Spotted’s actual model was non-binding demand first, followed by a final decision after an item was found.</p>
+
+          <div class="mental-model">
+            <div class="mental-card">
+              <span>What users thought</span>
+              <div class="mental-flow"><b>Enter price</b><i>→</i><b>Order placed</b></div>
+            </div>
+            <div class="mental-card correct">
+              <span>How Spotted works</span>
+              <div class="mental-flow"><b>Ideal price</b><i>→</i><b>Request</b><i>→</i><b>Offer</b><i>→</i><b>Final say</b></div>
+            </div>
+          </div>
+
+          <p>I rewrote the price input, submission copy, and reminder emails around “You get the final say.” Publishing a wishlist was not a purchase commitment; the buyer still decided after receiving an offer. The problem was not one button. It was the mental model of the entire transaction.</p>
+        </section>
+
+        <section class="case-section fade-up" id="measurement">
+          <p class="section-kicker">09 · Measurement design</p>
+          <h2>Do not rush into a dashboard. Make the core loop queryable first.</h2>
+          <p>Manual follow-up can explain why, but it cannot reliably reconstruct where every request stopped. I defined a minimal North Star funnel and used database timestamps for business-state transitions instead of creating a parallel event system that could disagree with reality.</p>
+
+          <div class="north-star" aria-label="North Star funnel">
+            <b>Page view</b><i>→</i><b>Wishlist started</b><i>→</i><b>Submitted</b><i>→</i><b>Offer made</b><i>→</i><b>Accepted</b><i>→</i><b>Fulfillment completed</b>
+          </div>
+
+          <div class="taxonomy" aria-label="Event taxonomy sample">
+            <div class="taxonomy-head"><span>EVENTS.md · source of truth</span><span>storage</span></div>
+            <div class="event-row"><code>page_view</code><span>landing page loaded with attribution</span><span>Microsoft Clarity page view</span></div>
+            <div class="event-row"><code>wishlist_started</code><span>first meaningful form action</span><span>minimal front-end event</span></div>
+            <div class="event-row"><code>wishlist_submitted</code><span>request successfully published</span><span>database timestamp</span></div>
+            <div class="event-row"><code>offer_made</code><span>seller submits an offer</span><span>database timestamp</span></div>
+            <div class="event-row"><code>offer_accepted</code><span>buyer confirms the offer</span><span>database timestamp</span></div>
+            <div class="event-row"><code>fulfillment_completed</code><span>buyer marks as received</span><span>database timestamp</span></div>
+          </div>
+
+          <p>Wishlist and match identifiers connect every lifecycle state, allowing SQL to calculate request match rate, offer acceptance, time to first offer, and time to fulfillment. Microsoft Clarity remains a tool for session replay and qualitative diagnosis; it is not the source of truth for business state.</p>
+        </section>
+
+        <section class="case-section fade-up" id="next">
+          <p class="section-kicker">10 · Current stage</p>
+          <h2>The risk has moved from “Does anyone want this?” to “Can it repeat?”</h2>
+          <p>Warm-started users expressed meaningful demand once inside the product, but Mercari does not provide a low-friction clickable path off-platform. The immediate challenge is converting latent interest into qualified requests and completing matches without depending entirely on my personal relationships and manual search.</p>
+
+          <div class="next-grid">
+            <div class="next-card"><span>Acquisition</span><h4>Shift gradually toward Instagram</h4><p>Use a clickable, persistent communication environment to separate channel friction from product friction.</p></div>
+            <div class="next-card"><span>Activation</span><h4>Separate wishes from active requests</h4><p>Capture purchase timing, price conditions, and current intent to protect demand quality.</p></div>
+            <div class="next-card"><span>Marketplace</span><h4>Validate non-founder supply</h4><p>Move from founder-led sourcing toward suppliers discovering demand, making offers, and completing fulfillment.</p></div>
+          </div>
+
+          <div class="case-end">
+            <p>I did not start with a grand marketplace.<br>I started with a behavior users already had—but no product owned.</p>
+          </div>
+
+          <div class="case-project-details">
+            <p>How I moved from observed behavior in cross-border resale, abandoned the initial “complete database first” idea, and used a wishlist to test the smallest entry point into a fragmented collectibles market.</p>
+            <div class="case-meta">
+              <div><span>Role</span><strong>Founder · Product · Growth · Operations</strong></div>
+              <div><span>Timeline</span><strong>April 2026—Present</strong></div>
+              <div><span>Stage</span><strong>Private trusted rollout</strong></div>
+              <div><span>Stack</span><strong>React · Supabase · AI-assisted development</strong></div>
+            </div>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© <span data-year></span> Dominique Zheng</span>
+      <span><a href="../../index.html">Home</a> · <a href="mailto:xucenzhe@usc.edu">Email</a> · <a href="https://spotted.blue" target="_blank" rel="noreferrer">Spotted ↗</a></span>
+    </div>
+  </footer>
+  <script src="../../script.js"></script>
+</body>
+</html>

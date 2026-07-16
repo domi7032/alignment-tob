@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mercari Commerce Analytics案例：从交易状态记录和匿名买家数据中定义GMV、费用、取消率与有限unit economics，并转化为选品、定价和渠道策略。">
+  <title>Mercari Commerce Analytics — Dominique Zheng</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="case-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#case-main">跳到正文</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="../index.html"><span class="brand-mark">DZ</span><span>Dominique Zheng</span></a>
+      <button class="mobile-menu" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="../index.html#work">项目</a>
+        <a href="../index.html#about">关于</a>
+        <a href="../assets/Dominique_Zheng_Resume.pdf" target="_blank" rel="noreferrer">简历</a>
+        <a class="nav-cta" href="mailto:xucenzhe@usc.edu">联系我 ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="case-main">
+    <section class="case-hero">
+      <a class="case-back" href="../index.html">← 返回项目</a>
+      <div class="case-hero-grid">
+        <div>
+          <p class="eyebrow">Commerce Analytics · SQL case</p>
+          <h1 class="analytics-title">Mercari<span>从交易记录<br>走到经营决策。</span></h1>
+        </div>
+        <div class="case-summary">
+          <p>我把订单导出、匿名买家汇总和销售通知整理成可分析的数据模型，先解决grain与指标口径，再用结果调整选品、定价和从Mercari向自有需求渠道迁移的策略。</p>
+          <div class="case-meta">
+            <div><span>Role</span><strong>Founder · Product · Analytics</strong></div>
+            <div><span>Timeline</span><strong>Apr — Jul 2026</strong></div>
+            <div><span>Tools</span><strong>SQLite · SQL · CSV</strong></div>
+            <div><span>Data</span><strong>Real · anonymized · aggregate-only</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-cover analytics-cover" aria-label="从原始记录到经营决策">
+      <div class="analytics-cover-inner">
+        <p class="eyebrow">The analysis pipeline</p>
+        <h2>Raw exports are not<br>business answers.</h2>
+        <div class="analytics-pipeline" aria-label="分析流程">
+          <span>221 raw rows</span><i>→</i><span>clean grain</span><i>→</i><span>define metrics</span><i>→</i><span>safe buyer join</span><i>→</i><strong>decisions</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="metric-wrap" aria-label="核心经营指标">
+      <div class="metrics">
+        <div class="metric"><strong>181</strong><span>已完成交易</span></div>
+        <div class="metric"><strong>$3,375</strong><span>已完成交易总额</span></div>
+        <div class="metric"><strong>10.95%</strong><span>成交总额与卖家净收入之间的平台扣减</span></div>
+        <div class="metric"><strong>4.57%</strong><span>按交易尝试计算的取消率</span></div>
+      </div>
+      <p class="metric-note">时间范围为2026年4月10日至7月10日。所有结果来自真实交易数据，但只展示匿名聚合值。GMV不是收入；由于缺少采购成本、入境运费、包装和人工成本，本案例不声称计算了完整利润。</p>
+    </section>
+
+    <div class="container case-layout">
+      <aside class="case-toc" aria-label="文章目录">
+        <p>Case contents</p>
+        <a href="#question">01 决策问题</a>
+        <a href="#grain">02 Grain与清洗</a>
+        <a href="#definitions">03 指标定义</a>
+        <a href="#baseline">04 经营基线</a>
+        <a href="#buyers">05 买家联结</a>
+        <a href="#decisions">06 决策影响</a>
+        <a href="#limits">07 边界与下一步</a>
+      </aside>
+
+      <article class="case-main">
+        <section class="case-section fade-up" id="question">
+          <p class="section-kicker">01 · Business question</p>
+          <h2>销售在增长，但什么值得继续放大？</h2>
+          <p class="lead">订单数量只能说明活动增加。真正需要回答的是：哪些交易完成了、平台拿走多少、什么商品组合创造价值、哪些买家会回来，以及这些信号应如何改变下一步。</p>
+
+          <div class="insight-grid">
+            <div class="insight-card"><span>Assortment</span><h4>哪些品类承担规模，哪些订单贡献GMV？</h4><p>避免只按销量选品，区分低价高频单品与高价值定制／bundle需求。</p></div>
+            <div class="insight-card"><span>Pricing</span><h4>GMV扣除平台费用后还剩多少？</h4><p>把平台扣减放进价格下限，而不是把成交价直接当作收入。</p></div>
+            <div class="insight-card"><span>Customer</span><h4>复购买家是否值得单独运营？</h4><p>在没有稳定order ID的情况下，建立保守的一对一买家订单分析集。</p></div>
+            <div class="insight-card"><span>Channel</span><h4>哪些能力应该留在Mercari，哪些应迁出？</h4><p>保留平台信任与交易保护，同时逐步掌握需求表达和客户关系。</p></div>
+          </div>
+        </section>
+
+        <section class="case-section fade-up" id="grain">
+          <p class="section-kicker">02 · Grain &amp; cleaning</p>
+          <h2>第一步不是写SUM，而是定义一行代表什么。</h2>
+          <p>原始销售报表有221行。我排除2条缺少成交日期和状态的汇总／异常行，得到219条可分析记录。这里每一行代表一次<strong>transaction attempt或状态记录</strong>，不是天然唯一订单。</p>
+
+          <div class="analytics-grain">
+            <div><span>sales_transactions</span><strong>1 row = 1 transaction attempt</strong><p>219行、215个不同Item ID。保留取消、待发货、待评价和完成状态。</p></div>
+            <div><span>buyer_summary</span><strong>1 row = 1 anonymized buyer</strong><p>140名买家、165次购买的汇总快照；不能还原每一次购买事件。</p></div>
+            <div><span>buyer_sale_emails</span><strong>1 row = 1 sale notification</strong><p>166封通知，只保留哈希buyer ID、Item ID和日期，不保存姓名、地址或邮件正文。</p></div>
+          </div>
+
+          <h3>为什么Item ID不能直接当Order ID？</h3>
+          <p>4个Item ID出现重复，其中3个先取消、后重新成交。如果直接按行数算订单，会重复计算；如果只对Item ID去重，又会抹掉取消后恢复成交的生命周期。因此我用`transaction_row_id`作为行主键，并让不同指标显式选择attempt、item或buyer grain。</p>
+
+          <div class="annotation">数据清洗不是“把脏行删掉”。更重要的是保留状态历史，并让每个指标的分子、分母和grain可以被解释。</div>
+        </section>
+
+        <section class="case-section fade-up" id="definitions">
+          <p class="section-kicker">03 · Metric definitions</p>
+          <h2>同一个词，必须只有一个可复现的算法。</h2>
+
+          <div class="metric-definitions">
+            <div><code>Completed GMV</code><p>仅对`order_status = 'completed'`的`item_price`求和。取消和仍在履约中的订单不进入GMV。</p></div>
+            <div><code>Net seller proceeds</code><p>Mercari结算给卖家的金额。它已经低于GMV，但仍不是利润。</p></div>
+            <div><code>Platform takeout</code><p>`(completed GMV − net proceeds) ÷ completed GMV`，当前为10.95%。</p></div>
+            <div><code>Cancellation rate</code><p>`cancelled attempts ÷ all transaction attempts`，当前为10 ÷ 219 = 4.57%。</p></div>
+            <div><code>Repeat-buyer rate</code><p>`buyers with &gt;1 matched completed order ÷ matched buyers`；只在保守联结集内报告。</p></div>
+            <div><code>Contribution margin</code><p>当前不可计算：缺少COGS、跨境头程、包装、补贴和人工成本。不能用net proceeds冒充margin。</p></div>
+          </div>
+        </section>
+
+        <section class="case-section fade-up" id="baseline">
+          <p class="section-kicker">04 · Commerce baseline</p>
+          <h2>低价商品带来频次，高价值订单承担GMV。</h2>
+          <p>181笔完成交易产生$3,375.03 GMV和$3,005.58 net proceeds，平均客单价为$18.65。平台相关扣减合计$369.45。</p>
+
+          <div class="analytics-chart" aria-label="价格区间订单与GMV占比">
+            <div class="analytics-chart-head"><strong>Price bucket</strong><span>订单占比 / GMV占比</span></div>
+            <div class="analytics-bar-row"><b>&lt; $10</b><div><i style="width:35.4%"></i><em style="width:10.1%"></em></div><span>35.4% / 10.1%</span></div>
+            <div class="analytics-bar-row"><b>$10–19.99</b><div><i style="width:34.8%"></i><em style="width:26.1%"></em></div><span>34.8% / 26.1%</span></div>
+            <div class="analytics-bar-row"><b>$20–34.99</b><div><i style="width:18.8%"></i><em style="width:27.9%"></em></div><span>18.8% / 27.9%</span></div>
+            <div class="analytics-bar-row"><b>$35+</b><div><i style="width:11%"></i><em style="width:35.8%"></em></div><span>11.0% / 35.8%</span></div>
+            <p class="analytics-legend"><span></span>订单占比 <span></span>GMV占比</p>
+          </div>
+
+          <div class="research-strip">
+            <div class="research-cell"><strong>45</strong><span>custom／bundle完成订单，占全部完成订单24.9%</span></div>
+            <div class="research-cell"><strong>$1,419</strong><span>custom／bundle GMV，占完成GMV约42%</span></div>
+            <div class="research-cell"><strong>$31.53</strong><span>custom／bundle AOV，高于整体$18.65</span></div>
+          </div>
+
+          <p>这不是在说“低价商品没价值”。低价单品可以承担搜索曝光和首次成交，但如果把订单数当唯一目标，就会低估bundle和定制找货对GMV与客户关系的贡献。</p>
+        </section>
+
+        <section class="case-section fade-up" id="buyers">
+          <p class="section-kicker">05 · Conservative buyer join</p>
+          <h2>没有共同Order ID时，宁可少联结，也不要制造假精度。</h2>
+          <p>销售表与邮件表只有Item ID可以连接，但两边都存在重复Item ID。我只保留<strong>在销售表和邮件表中都恰好出现一次</strong>、且销售状态为completed的记录，得到132笔安全联结订单和112名匿名买家。</p>
+
+          <div class="logic-chain analytics-join-chain">
+            <div class="logic-node"><b>166</b><small>sale notifications</small></div>
+            <div class="logic-node"><b>检查重复</b><small>两边分别验证Item ID唯一性</small></div>
+            <div class="logic-node"><b>仅completed</b><small>排除取消与未完成状态</small></div>
+            <div class="logic-node"><b>132</b><small>safe matched orders</small></div>
+            <div class="logic-node"><b>112</b><small>anonymous buyers</small></div>
+          </div>
+
+          <div class="research-strip">
+            <div class="research-cell"><strong>12.5%</strong><span>保守联结集内repeat-buyer rate</span></div>
+            <div class="research-cell"><strong>31.9%</strong><span>复购买家贡献的联结集GMV占比</span></div>
+            <div class="research-cell"><strong>13.6%</strong><span>独立buyer summary中的overall repeat rate，用于交叉核验</span></div>
+          </div>
+
+          <p class="annotation">13.6%来自一行一名买家的独立汇总表；12.5%来自更严格但覆盖更小的一对一联结集。两者口径不同，因此并列报告，不把它们合并成一个“更漂亮”的数字。</p>
+        </section>
+
+        <section class="case-section fade-up" id="decisions">
+          <p class="section-kicker">06 · Decisions</p>
+          <h2>分析的终点不是dashboard，而是改变下一步。</h2>
+
+          <div class="impact-grid">
+            <article>
+              <span>01 · 选品</span>
+              <h3>用两层组合替代“只追销量”。</h3>
+              <p><strong>保留可重复上架的低价热门单品</strong>承担发现和首次交易；把更多采购注意力放在custom wishlist与bundle，因为它们只占24.9%的完成订单，却贡献约42%的GMV。</p>
+            </article>
+            <article>
+              <span>02 · 定价</span>
+              <h3>先从net proceeds倒推价格。</h3>
+              <p>当前平台扣减为10.95%，因此成交价不能直接当收入。对低价单品设置更严格的价格下限，并优先通过bundle摊薄包装、沟通与跨境履约成本；完整margin要等COGS补齐后再计算。</p>
+            </article>
+            <article>
+              <span>03 · 客户运营</span>
+              <h3>把复购买家当作独立经营对象。</h3>
+              <p>复购买家在保守联结集中占12.5%，却贡献31.9%的GMV。继续为高意向收藏者提供custom bundle与找货流程，而不是把所有用户放进同一套低价listing策略。</p>
+            </article>
+            <article>
+              <span>04 · 迁移策略</span>
+              <h3>迁移需求关系，不是立刻迁走全部交易。</h3>
+              <p>Mercari继续提供发现、支付保护和初始信任；Instagram承接可持续沟通，Spotted承接结构化wishlist。交易是否迁移取决于信任和保护需求，而不是为了自有渠道强迫用户改变习惯。</p>
+            </article>
+          </div>
+
+          <div class="pull-quote">Mercari验证了什么能卖；买家与订单联结开始解释，为什么卖、卖给谁，以及下一步应该把能力建在哪里。</div>
+        </section>
+
+        <section class="case-section fade-up" id="limits">
+          <p class="section-kicker">07 · Limits &amp; next step</p>
+          <h2>我知道这份数据不能回答什么。</h2>
+          <div class="next-grid">
+            <div class="next-card"><span>Missing cost</span><h4>补齐真实COGS</h4><p>记录采购价、国际／美国境内运费、包装和退款，计算contribution margin。</p></div>
+            <div class="next-card"><span>Missing behavior</span><h4>不能计算sell-through</h4><p>缺少listing创建时间、曝光和完整库存，因此不能报告转化率或time-to-sale。</p></div>
+            <div class="next-card"><span>Missing identity</span><h4>建立稳定buyer ID</h4><p>未来用自有产品账号连接request、offer、order和fulfillment，减少依赖Item ID联结。</p></div>
+          </div>
+
+          <p>同样地，buyer summary只保留首次、末次购买日期和次数，不足以计算标准D30 retention。下一阶段的重点不是增加更多图表，而是让每个订单、用户和履约成本从产生时就拥有可靠标识。</p>
+
+          <div class="case-end">
+            <p>先把grain讲清楚。<br>再让数字改变经营。</p>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <span>© <span data-year></span> Dominique Zheng</span>
+      <span><a href="../index.html">Home</a> · <a href="../spotted/">Spotted case</a> · <a href="mailto:xucenzhe@usc.edu">Email</a></span>
+    </div>
+  </footer>
+  <script src="../script.js"></script>
+</body>
+</html>
