@@ -62,14 +62,12 @@
         <a href="#background">01 背景与初始假设</a>
         <a href="#research">02 用户研究</a>
         <a href="#landscape">03 竞争格局</a>
-        <a href="#decision">04 为什么先做求购清单</a>
-        <a href="#mvp">05 最小产品与迭代</a>
-        <a href="#pilot">06 真实用户试点</a>
-        <a href="#patterns">07 四种行为模式</a>
-        <a href="#mental-model">08 心智模型修正</a>
-        <a href="#measurement">09 最小数据系统</a>
-        <a href="#next">10 当前瓶颈与下一步</a>
-        <a href="#proof">11 团队需要验证什么</a>
+        <a href="#mvp">04 最小产品与迭代</a>
+        <a href="#pilot">05 真实用户试点</a>
+        <a href="#patterns">06 四种行为模式</a>
+        <a href="#mental-model">07 心智模型修正</a>
+        <a href="#measurement">08 最小数据系统</a>
+        <a href="#proof">09 下一阶段验证</a>
       </aside>
 
       <article class="case-main">
@@ -144,30 +142,8 @@
           </div>
         </section>
 
-        <section class="case-section fade-up" id="decision">
-          <p class="section-kicker">04 · Product strategy</p>
-          <h2>为什么不是数据库、价格追踪或另一个交易市场？</h2>
-          <div class="decision-table" role="table" aria-label="产品方向比较">
-            <div class="decision-row header" role="row"><div>方向</div><div>即时价值</div><div>冷启动</div><div>数据前置</div><div>长期价值</div></div>
-            <div class="decision-row" role="row"><div>全量标准商品数据库</div><div>低—中</div><div>高</div><div>极高</div><div>高</div></div>
-            <div class="decision-row" role="row"><div>价格追踪</div><div>中</div><div>高</div><div>高</div><div>高</div></div>
-            <div class="decision-row" role="row"><div>商品上架型交易市场</div><div>中</div><div>极高</div><div>供给前置</div><div>中</div></div>
-            <div class="decision-row selected" role="row"><div>求购清单／需求广场</div><div>高</div><div>中</div><div>低</div><div>高</div></div>
-          </div>
-
-          <div class="logic-chain">
-            <div class="logic-node"><b>用户已经在私信里提出“帮我找”</b></div>
-            <div class="logic-node"><b>把现有行为结构化</b></div>
-            <div class="logic-node"><b>无需先建完整数据库</b></div>
-            <div class="logic-node"><b>需求指导定向供给</b></div>
-            <div class="logic-node"><b>再决定哪些标准商品值得整理</b></div>
-          </div>
-
-          <blockquote class="pull-quote">求购清单不是最终产品，而是进入市场的最小切口。</blockquote>
-        </section>
-
         <section class="case-section fade-up" id="mvp">
-          <p class="section-kicker">05 · MVP scope</p>
+          <p class="section-kicker">04 · MVP scope</p>
           <h2>先让一条真实需求从上传走到完成履约。</h2>
           <p class="lead">买家上传需求，需求进入公开需求广场，再由我人工寻找供给、报价并完成履约。自动匹配、完整支付、原生应用和全量数据库全部延后。</p>
 
@@ -201,7 +177,7 @@
         </section>
 
         <section class="case-section fade-up" id="pilot">
-          <p class="section-kicker">06 · Trusted rollout</p>
+          <p class="section-kicker">05 · Trusted rollout</p>
           <h2>一旦进入产品，用户表达了比私信里更多的需求。</h2>
           <p>我邀请了3名此前主动提出找卡需求、并与我存在真实Instagram联系的收藏者。2人完成真实上传，分别提交2条和11条求购——都超过此前在私信中向我表达的数量。</p>
 
@@ -221,7 +197,7 @@
         </section>
 
         <section class="case-section fade-up" id="patterns">
-          <p class="section-kicker">07 · Behavioral patterns</p>
+          <p class="section-kicker">06 · Behavioral patterns</p>
           <h2>相同的“找不到”，产生四种不同的行为。</h2>
           <p>第二轮5名访谈与线下观察让我意识到，这些不是固定人格，而是搜索失败后的四种应对模式。同一个用户面对不同卡片，也可能在模式之间切换。</p>
 
@@ -234,7 +210,7 @@
         </section>
 
         <section class="case-section fade-up" id="mental-model">
-          <p class="section-kicker">08 · Mental model</p>
+          <p class="section-kicker">07 · Mental model</p>
           <h2>没有点击“接受”，不等于不想要。</h2>
           <p>早期有3名用户没有在页面完成接受报价。回访显示，用户误以为上传时填写的价格已经构成最终下单，而Spotted的真实逻辑是：先表达非约束性需求，找到商品后再由用户决定。</p>
 
@@ -253,7 +229,7 @@
         </section>
 
         <section class="case-section fade-up" id="measurement">
-          <p class="section-kicker">09 · Measurement design</p>
+          <p class="section-kicker">08 · Measurement design</p>
           <h2>不急着做数据看板，先让核心闭环可查询。</h2>
           <p>人工回访可以解释“为什么”，却不能稳定还原每条求购在哪一步停下。我定义了最小核心漏斗，并优先使用数据库中的业务状态时间戳，而不是另建一套可能与真实状态不一致的事件系统。</p>
 
@@ -274,22 +250,10 @@
           <p>所有生命周期状态通过求购与匹配标识连接，从而用SQL计算求购匹配率、报价接受率、首次报价耗时和完成履约耗时。Microsoft Clarity继续用于会话回放与定性诊断，不作为业务状态的唯一事实来源。</p>
         </section>
 
-        <section class="case-section fade-up" id="next">
-          <p class="section-kicker">10 · Current stage</p>
-          <h2>现在的风险已经从“有人要吗”，移动到“能重复发生吗”。</h2>
-          <p>从已有信任关系启动的用户进入产品后，表达了较多需求；但Mercari无法提供低摩擦的可点击站外入口。当前最大问题是把潜在需求转化为条件明确的求购，以及在不完全依赖我个人关系和人工寻找的情况下持续完成匹配。</p>
-
-          <div class="next-grid">
-            <div class="next-card"><span>获客</span><h4>逐步转向Instagram</h4><p>在可点击、可持续沟通的环境中分离渠道摩擦与产品摩擦。</p></div>
-            <div class="next-card"><span>激活</span><h4>区分愿望与当前求购</h4><p>明确购买时间、价格条件与当前意愿，保护需求板质量。</p></div>
-            <div class="next-card"><span>双边市场</span><h4>验证非创始人供给</h4><p>从人工找货扩展到供应方发现需求、报价和完成履约。</p></div>
-          </div>
-        </section>
-
         <section class="case-section fade-up" id="proof">
-          <p class="section-kicker">11 · What the team needs to prove</p>
+          <p class="section-kicker">09 · What comes next</p>
           <h2>从“创始人亲自代购”，走向一个可重复运行的市场。</h2>
-          <p>当前证据说明真实需求和购买意愿存在。下一阶段不是继续证明收藏者偶尔会找不到卡，而是验证获客、供给、交易和经济模型能否逐步脱离我个人的关系与人工操作。</p>
+          <p>当前证据说明真实需求和购买意愿存在，但它建立在已有信任和创始人亲自找货之上。Mercari又缺少低摩擦的可点击站外入口。因此，下一阶段不是继续证明收藏者偶尔会找不到卡，而是转向Instagram等可持续沟通的渠道，并验证获客、供给、交易和经济模型能否逐步脱离我个人的关系与人工操作。</p>
 
           <div class="validation-grid">
             <div class="validation-card"><span>01 · 获客</span><h4>陌生用户会提交有效求购吗？</h4><p>从Instagram、TikTok和收藏社群中找到可重复的获客路径，并区分渠道摩擦与产品摩擦。</p></div>

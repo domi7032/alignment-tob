@@ -63,14 +63,12 @@
         <a href="#background">01 Background</a>
         <a href="#research">02 Customer research</a>
         <a href="#landscape">03 Competitive landscape</a>
-        <a href="#decision">04 Why wishlist first</a>
-        <a href="#mvp">05 MVP and iteration</a>
-        <a href="#pilot">06 Real-user pilot</a>
-        <a href="#patterns">07 Behavioral patterns</a>
-        <a href="#mental-model">08 Mental-model correction</a>
-        <a href="#measurement">09 Measurement design</a>
-        <a href="#next">10 Current constraint</a>
-        <a href="#proof">11 What the team needs to prove</a>
+        <a href="#mvp">04 MVP and iteration</a>
+        <a href="#pilot">05 Real-user pilot</a>
+        <a href="#patterns">06 Behavioral patterns</a>
+        <a href="#mental-model">07 Mental-model correction</a>
+        <a href="#measurement">08 Measurement design</a>
+        <a href="#proof">09 What comes next</a>
       </aside>
 
       <article class="case-main">
@@ -145,30 +143,8 @@
           </div>
         </section>
 
-        <section class="case-section fade-up" id="decision">
-          <p class="section-kicker">04 · Product strategy</p>
-          <h2>Why not a database, price tracker, or another listing marketplace?</h2>
-          <div class="decision-table" role="table" aria-label="Product direction comparison">
-            <div class="decision-row header" role="row"><div>Direction</div><div>Immediate value</div><div>Cold start</div><div>Data dependency</div><div>Long-term value</div></div>
-            <div class="decision-row" role="row"><div>Full entity database</div><div>Low–medium</div><div>High</div><div>Very high</div><div>High</div></div>
-            <div class="decision-row" role="row"><div>Price tracking</div><div>Medium</div><div>High</div><div>High</div><div>High</div></div>
-            <div class="decision-row" role="row"><div>Listing marketplace</div><div>Medium</div><div>Very high</div><div>Supply first</div><div>Medium</div></div>
-            <div class="decision-row selected" role="row"><div>Wishlist / demand board</div><div>High</div><div>Medium</div><div>Low</div><div>High</div></div>
-          </div>
-
-          <div class="logic-chain">
-            <div class="logic-node"><b>Buyers already ask, “Can you find this?”</b></div>
-            <div class="logic-node"><b>Structure an existing behavior</b></div>
-            <div class="logic-node"><b>Avoid requiring a full database</b></div>
-            <div class="logic-node"><b>Let demand guide sourcing</b></div>
-            <div class="logic-node"><b>Learn which entities deserve structure</b></div>
-          </div>
-
-          <blockquote class="pull-quote">The wishlist is not the final product. It is the smallest viable entry point.</blockquote>
-        </section>
-
         <section class="case-section fade-up" id="mvp">
-          <p class="section-kicker">05 · MVP scope</p>
+          <p class="section-kicker">04 · MVP scope</p>
           <h2>Move one real request from upload to completed fulfillment.</h2>
           <p class="lead">A buyer uploads a request, it appears on a public board, and I manually source, price, and fulfill it. Automated matching, integrated payments, a native app, and a complete database all came later.</p>
 
@@ -202,7 +178,7 @@
         </section>
 
         <section class="case-section fade-up" id="pilot">
-          <p class="section-kicker">06 · Trusted rollout</p>
+          <p class="section-kicker">05 · Trusted rollout</p>
           <h2>Once inside the product, users expressed more demand than they had in DMs.</h2>
           <p>I invited three collectors who had previously asked me to find cards and had a real Instagram relationship with me. Two completed an upload, submitting two and eleven requests respectively—more than either had previously expressed in DMs.</p>
 
@@ -222,7 +198,7 @@
         </section>
 
         <section class="case-section fade-up" id="patterns">
-          <p class="section-kicker">07 · Behavioral patterns</p>
+          <p class="section-kicker">06 · Behavioral patterns</p>
           <h2>The same “I can’t find it” produces four different behaviors.</h2>
           <p>The second interview round and field observation showed that these are not fixed personas. They are responses to search failure, and the same collector may move between them for different cards.</p>
 
@@ -235,7 +211,7 @@
         </section>
 
         <section class="case-section fade-up" id="mental-model">
-          <p class="section-kicker">08 · Mental model</p>
+          <p class="section-kicker">07 · Mental model</p>
           <h2>No click on “Accept” did not mean no desire.</h2>
           <p>Three early users did not accept an offer in the product. Follow-up showed that they believed entering a target price had already placed an order. Spotted’s actual model was non-binding demand first, followed by a final decision after an item was found.</p>
 
@@ -254,7 +230,7 @@
         </section>
 
         <section class="case-section fade-up" id="measurement">
-          <p class="section-kicker">09 · Measurement design</p>
+          <p class="section-kicker">08 · Measurement design</p>
           <h2>Do not rush into a dashboard. Make the core loop queryable first.</h2>
           <p>Manual follow-up can explain why, but it cannot reliably reconstruct where every request stopped. I defined a minimal North Star funnel and used database timestamps for business-state transitions instead of creating a parallel event system that could disagree with reality.</p>
 
@@ -275,22 +251,10 @@
           <p>Wishlist and match identifiers connect every lifecycle state, allowing SQL to calculate request match rate, offer acceptance, time to first offer, and time to fulfillment. Microsoft Clarity remains a tool for session replay and qualitative diagnosis; it is not the source of truth for business state.</p>
         </section>
 
-        <section class="case-section fade-up" id="next">
-          <p class="section-kicker">10 · Current stage</p>
-          <h2>The risk has moved from “Does anyone want this?” to “Can it repeat?”</h2>
-          <p>Warm-started users expressed meaningful demand once inside the product, but Mercari does not provide a low-friction clickable path off-platform. The immediate challenge is converting latent interest into qualified requests and completing matches without depending entirely on my personal relationships and manual search.</p>
-
-          <div class="next-grid">
-            <div class="next-card"><span>Acquisition</span><h4>Shift gradually toward Instagram</h4><p>Use a clickable, persistent communication environment to separate channel friction from product friction.</p></div>
-            <div class="next-card"><span>Activation</span><h4>Separate wishes from active requests</h4><p>Capture purchase timing, price conditions, and current intent to protect demand quality.</p></div>
-            <div class="next-card"><span>Marketplace</span><h4>Validate non-founder supply</h4><p>Move from founder-led sourcing toward suppliers discovering demand, making offers, and completing fulfillment.</p></div>
-          </div>
-        </section>
-
         <section class="case-section fade-up" id="proof">
-          <p class="section-kicker">11 · What the team needs to prove</p>
+          <p class="section-kicker">09 · What comes next</p>
           <h2>Move from founder-led proxy buying to a repeatable marketplace.</h2>
-          <p>The current evidence supports real demand and purchase intent. The next stage is not to keep proving that collectors occasionally fail to find a card. It is to test whether acquisition, supply, transactions, and economics can become less dependent on my relationships and manual work.</p>
+          <p>The current evidence supports real demand and purchase intent, but it is grounded in existing trust and founder-led sourcing. Mercari also lacks a low-friction clickable path off-platform. The next stage is not to keep proving that collectors occasionally fail to find a card. It is to shift toward persistent channels such as Instagram and test whether acquisition, supply, transactions, and economics can become less dependent on my relationships and manual work.</p>
 
           <div class="validation-grid">
             <div class="validation-card"><span>01 · Acquisition</span><h4>Will cold users submit qualified requests?</h4><p>Find a repeatable path through Instagram, TikTok, and collector communities while separating channel friction from product friction.</p></div>
