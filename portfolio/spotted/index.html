@@ -150,6 +150,18 @@
           <h3>先用朋友找可用性问题，再用目标用户验证行为</h3>
           <p>朋友参与主持式端到端可用性测试，只用于确认流程是否看得懂、是否能在手机上完成以及是否存在明显错误；需求验证留给此前真实提出过找卡需求的收藏者。</p>
 
+          <h3>从展示需求，到主动解释交易机制</h3>
+          <div class="product-evolution" aria-label="Spotted主页迭代前后对比">
+            <figure>
+              <div class="product-shot-frame"><img src="../assets/spotted-board-july-06.png" alt="2026年7月6日的Spotted早期主页，显示公开求购卡片和我有这件商品按钮"></div>
+              <figcaption><strong>7月6日 · 早期版本</strong><span>页面能够展示需求，但用户需要自己推断发布、报价和付款如何发生。</span></figcaption>
+            </figure>
+            <figure>
+              <div class="product-shot-frame"><img src="../assets/spotted-board-july-18.png" alt="2026年7月18日的Spotted主页，顶部新增免费发布、邮件报价、最终决定权和到货付款说明"></div>
+              <figcaption><strong>7月18日 · 当前版本</strong><span>在首屏补充三步流程、免费发布和到货后付款说明，让交易机制在操作前可见。</span></figcaption>
+            </figure>
+          </div>
+
           <h3>从四个字段，减到两个</h3>
           <div class="form-compare">
             <div class="form-card">
@@ -164,16 +176,22 @@
               <h4>V1 · 最小需求表达</h4>
               <div class="fake-field">照片 <span>必填</span></div>
               <div class="fake-field">理想价格 <span>$</span></div>
-              <div class="reduction">4 → 2个字段 · 减少50%输入项</div>
+              <div class="fake-field">备注 <span>折叠 · 可选</span></div>
+              <div class="reduction">4 → 2个核心必填字段</div>
             </div>
           </div>
-          <p>团名在当前人工履约中没有提供关键增量信息；开放式备注让用户停下来组织语言。我删除两者，只保留识别商品与判断需求强度所需的信息。</p>
+          <p>团名在当前人工履约中没有提供关键增量信息，因此直接删除。开放式备注会让用户停下来组织语言，我把它改成折叠的可选输入：核心需求只需照片和理想价格，同时为特殊版本保留补充说明的出口。</p>
 
           <h3>让注册发生在意图之后</h3>
           <div class="evidence-grid">
             <div class="evidence-card"><span>买家流程</span><h4>填写求购 → 提交 → 注册并发布</h4><p>先完成有动机的任务，再用“保存和追踪求购”解释账户价值。</p></div>
             <div class="evidence-card"><span>卖家流程</span><h4>我有这件商品 → 报价 → 注册并提交</h4><p>潜在卖家先确认需求与报价意图，再承担账户成本。</p></div>
           </div>
+
+          <figure class="product-shot-single">
+            <div class="product-shot-frame phone"><img src="../assets/spotted-upload-current.png" alt="Spotted当前移动端上传页面，只要求照片和目标价格，备注折叠为可选项"></div>
+            <figcaption><strong>当前移动端上传页</strong><span>先完成“照片＋理想价格”的最小任务；备注保持可选，联系方式用于接收报价和物流更新。</span></figcaption>
+          </figure>
         </section>
 
         <section class="case-section fade-up" id="pilot">
@@ -190,6 +208,11 @@
           </div>
 
           <p>这为“先做求购清单”的假设提供了早期支持：自助输入可能降低逐条在私信中麻烦卖家的社交成本，也帮助用户一次整理更多需求。但它仍是从已有信任关系启动的小范围试点，不代表陌生用户激活或长期留存。</p>
+
+          <figure class="testimonial-evidence">
+            <img src="../assets/spotted-testimonial.png" alt="早期测试用户反馈：这个工具会让她更容易找到收藏清单中一直找不到的小卡">
+            <figcaption><strong>早期测试用户反馈</strong><span>“我的收藏清单里总有找不到的小卡，这个工具肯定会让我更容易找到它们。”</span></figcaption>
+          </figure>
 
           <h3>从“上传”继续走到“接受报价”</h3>
           <p>对于我能够找到供给的9条求购，我给出的报价都低于用户预先填写的目标价格，9条报价全部获得接受。这说明理想价格至少在当前样本中能够筛选具有实际交易意愿的需求。</p>
